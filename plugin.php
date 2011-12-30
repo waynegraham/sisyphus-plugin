@@ -1,17 +1,17 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4; */
 
-if(!defined('SYSYPHUS_PLUGIN_VERSION')) {
-  define('SYSYPHUS_PLUGIN_VERSION', get_plugin_ini('Sysyphus', 'version'));
+if(!defined('SISYPHUS_PLUGIN_VERSION')) {
+  define('SISYPHUS_PLUGIN_VERSION', get_plugin_ini('Sisyphus', 'version'));
 }
 
-if(!define('SYSYPHUS_PLUGIN_DIR')) {
-  define('SYSYPHUS_PLUGIN_DIR', dirname(__FILE__));
+if(!define('SISYPHUS_PLUGIN_DIR')) {
+  define('SISYPHUS_PLUGIN_DIR', dirname(__FILE__));
 }
 
-require_once 'SysyphusPlugin.php';
+require_once 'SisyphusPlugin.php';
 
-new SysyphusPlugin;
+new SisyphusPlugin;
 
 /*
 * Local variables:

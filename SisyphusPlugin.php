@@ -1,11 +1,12 @@
 <?php
 /* vim: set expandtab tabstop=4 shiftwidth=4 softtabstop=4; */
 
-class SysyphusPlugin
+class SisyphusPlugin
 {
   private static $_hooks = array(
     'install',
-    'admin_theme_header'
+    'admin_theme_header',
+    'admin_theme_footer'
   );
 
   private static $_filters = array(
@@ -19,14 +20,16 @@ class SysyphusPlugin
 
   public function FunctionName()
   {
+    $broker = get_plugin_broker();
     foreach(self::$_hooks as $hookname) {
+
       $functionName = Inflector::variablize($hookName);
-      add_plugin_hook($hookname, array($this, $functionName));
+      $broker->addHook($hookname, array($this, $functionName));
     }
 
     foreach(self::$_filters as $filterName) {
       $functionName = Inflector::variablize($filterName);
-      add_filter($filterName, array($this, $functionName));
+      $broker->addFilter($filterName, array($this, $functionName));
     }
   }
 
@@ -35,10 +38,15 @@ class SysyphusPlugin
     
   }
 
-  public function FunctionName()
+  public function adminThemeHeader()
   {
     // queue sysyphus js
     queue_js('sysyphus.min');
+  }
+
+  public function adminThemeFooter()
+  {
+    echo "$('#item-form').sisyphus();"
   }
 }
 
