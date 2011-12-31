@@ -5,7 +5,7 @@ if(!defined('SISYPHUS_PLUGIN_VERSION')) {
   define('SISYPHUS_PLUGIN_VERSION', get_plugin_ini('Sisyphus', 'version'));
 }
 
-if(!define('SISYPHUS_PLUGIN_DIR')) {
+if(!defined('SISYPHUS_PLUGIN_DIR')) {
   define('SISYPHUS_PLUGIN_DIR', dirname(__FILE__));
 }
 
